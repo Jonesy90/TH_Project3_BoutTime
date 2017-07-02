@@ -14,16 +14,11 @@ class ViewController: UIViewController {
     
     //List of buttons
     @IBOutlet weak var downFullButton: UIButton!
-    
     @IBOutlet weak var secondLabelHalfUp: UIButton!
     @IBOutlet weak var secondLabelHalfDown: UIButton!
-    
     @IBOutlet weak var thirdLabelHalfUp: UIButton!
     @IBOutlet weak var thirdLabelHalfDown: UIButton!
-    
     @IBOutlet weak var upFullButton: UIButton!
-    
-    
     
     
     //Giving each image provided it's own UIImage.
@@ -31,9 +26,6 @@ class ViewController: UIViewController {
     let downHalfImage = UIImage(named: "down_half.png")
     let upHalfImage = UIImage(named: "up_half.png")
     let fullUpImage = UIImage(named: "up_full.png")
-    
-    
-    
     
     
     //Giving the buttons the correct background images.
