@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
+//    let demoEvents = TestEvents()
     
     //List of buttons
     @IBOutlet weak var downFullButton: UIButton!
@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadButtonBackgroundImage()
+        print("Hello World")
     }
 
     override func didReceiveMemoryWarning() {
