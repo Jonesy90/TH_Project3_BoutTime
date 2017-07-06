@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     var randomNumber: Int = 0
     var repetitionStopper: [Int] = []
+    var birthdaysInOrder: [Int] = []
+    
     
     var firstEventYear = 0
     
@@ -87,6 +89,8 @@ class ViewController: UIViewController {
         let thirdEventName = events.birthdays[repetitionStopper[2]]
         let fourthEventName = events.birthdays[repetitionStopper[3]]
         
+        
+        
         print("First Name: \(firstEventName)")
         print("Second Name: \(secondEventName)")
         print("Third Name: \(thirdEventName)")
@@ -94,13 +98,29 @@ class ViewController: UIViewController {
         
         //Displaying the names in the labels.
         
+        if let firstEvent = firstEventName["name"] {
+            labelOne.text = firstEvent
+        }
         
-        labelOne.text = (firstEventName["name"] as! String)
-        labelTwo.text = (secondEventName["name"] as! String)
-        labelThree.text = (thirdEventName["name"] as! String)
-        labelFour.text = (fourthEventName["name"] as! String)
+        if let secondEvent = secondEventName["name"] {
+            labelTwo.text = secondEvent
+        }
+        
+        if let thirdEvent = thirdEventName["name"] {
+            labelThree.text = thirdEvent
+        }
+        
+        if let fourthEvent = fourthEventName["name"] {
+            labelFour.text = fourthEvent
+        }
         
         
+        
+        
+//        labelOne.text = (firstEventName["name"]!)
+//        labelTwo.text = (secondEventName["name"]!)
+//        labelThree.text = (thirdEventName["name"]!)
+//        labelFour.text = (fourthEventName["name"]!)
         
     }
     
