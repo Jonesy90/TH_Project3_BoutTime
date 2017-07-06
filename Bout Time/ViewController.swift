@@ -18,8 +18,11 @@ class ViewController: UIViewController {
     var repetitionStopper: [Int] = []
     var birthdaysInOrder: [Int] = []
     
-    
-    var firstEventYear = 0
+    var years: [Int] = []
+    var birthday1 = 0
+    var birthday2 = 0
+    var birthday3 = 0
+    var birthday4 = 0
     
     
     //List of labels
@@ -84,34 +87,46 @@ class ViewController: UIViewController {
         print(repetitionStopper)
         
         //Placing the names from the birthday array ditionary to the labels on the UI.
-        let firstEventName = events.birthdays[repetitionStopper[0]]
-        let secondEventName = events.birthdays[repetitionStopper[1]]
-        let thirdEventName = events.birthdays[repetitionStopper[2]]
-        let fourthEventName = events.birthdays[repetitionStopper[3]]
+        let firstEvent = events.birthdays[repetitionStopper[0]]
+        let secondEvent = events.birthdays[repetitionStopper[1]]
+        let thirdEvent = events.birthdays[repetitionStopper[2]]
+        let fourthEvent = events.birthdays[repetitionStopper[3]]
         
+        //Stores the values each event birthday.
+        birthday1 = firstEvent["birthday_year"] as! Int
+        birthday2 = secondEvent["birthday_year"] as! Int
+        birthday3 = thirdEvent["birthday_year"] as! Int
+        birthday4 = fourthEvent["birthday_year"] as! Int
         
+        years = [birthday1, birthday2, birthday3, birthday4]
+        let sortedYears = years.sorted()
         
-        print("First Name: \(firstEventName)")
-        print("Second Name: \(secondEventName)")
-        print("Third Name: \(thirdEventName)")
-        print("Fourth Name: \(fourthEventName)")
+        print("Years: \(years)")
+        print("Sorted Years: \(sortedYears)")
+        
+        print("Birthday1: \(birthday1)")
+        
+        print("First Event: \(firstEvent)")
+        print("Second Event: \(secondEvent)")
+        print("Third Event: \(thirdEvent)")
+        print("Fourth Event: \(fourthEvent)")
         
         //Displaying the names in the labels.
         
-        if let firstEvent = firstEventName["name"] {
-            labelOne.text = firstEvent
+        if let firstEvent = firstEvent["name"] {
+            labelOne.text = (firstEvent as! String)
         }
         
-        if let secondEvent = secondEventName["name"] {
-            labelTwo.text = secondEvent
+        if let secondEvent = secondEvent["name"] {
+            labelTwo.text = (secondEvent as! String)
         }
         
-        if let thirdEvent = thirdEventName["name"] {
-            labelThree.text = thirdEvent
+        if let thirdEvent = thirdEvent["name"] {
+            labelThree.text = (thirdEvent as! String)
         }
         
-        if let fourthEvent = fourthEventName["name"] {
-            labelFour.text = fourthEvent
+        if let fourthEvent = fourthEvent["name"] {
+            labelFour.text = (fourthEvent as! String)
         }
         
     }

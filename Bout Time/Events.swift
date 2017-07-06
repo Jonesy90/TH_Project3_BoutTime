@@ -15,19 +15,19 @@ let birthdays = [
     
     [
     "name": "Michael Jones",
-    "birthday_year": "1990"
+    "birthday_year": 1990
     ],
     [
     "name": "Sophie Cosby",
-    "birthday_year": "1989"
+    "birthday_year": 1989
     ],
     [
     "name": "Matthew Jones",
-    "birthday_year": "1993"
+    "birthday_year": 1993
     ],
     [
     "name": "Christopher Jones",
-    "birthday_year": "1995"
+    "birthday_year": 1995
     ]
     ]
 
