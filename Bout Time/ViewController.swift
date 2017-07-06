@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: events.birthdays.count)
     }
     
-    //TODO: Create a function that will put names of each birthday event and display it on each label.
+    //FIXIT: displayEvents method isn't safely unwrapping the events.
     func displayEventsInLabels() {
         let labels = [labelOne, labelTwo, labelThree, labelFour]
         
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
     }
     
     
-    //Swaping events when an button event happens.
+    //Swaping events when a button event happens.
     
     @IBAction func fullDownButtonAction(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
@@ -179,6 +179,14 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func doneButton(_ sender: Any) {
+        if years == years.sorted() {
+            print("Sorted")
+        } else {
+            print("Not Sorted")
+        }
+        
+    }
     
     
     
