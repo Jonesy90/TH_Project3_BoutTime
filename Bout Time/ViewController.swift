@@ -98,7 +98,7 @@ class ViewController: UIViewController {
         thirdEventBirthday = thirdEvent["birthday_year"] as! Int
         fourthEventBirthday = fourthEvent["birthday_year"] as! Int
         
-        years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
+        update()
         let sortedYears = years.sorted()
         
         print("Years: \(years)")
@@ -129,33 +129,56 @@ class ViewController: UIViewController {
         
     }
     
+    func update() {
+        years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
+    }
+    
     
     //Swaping events when an button event happens.
     
     @IBAction func fullDownButtonAction(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
         swap(&firstEventBirthday, &secondEventBirthday)
+        update()
+        print("Updated Years: \(years)")
     }
     
     @IBAction func halfUpButtonActionOne(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
+        swap(&firstEventBirthday, &secondEventBirthday)
+        update()
+        print("Updated Years: \(years)")
     }
     
     @IBAction func halfDownButtonActionOne(_ sender: Any) {
         swap(&labelTwo.text, &labelThree.text)
+        swap(&secondEventBirthday, &thirdEventBirthday)
+        update()
+        print("Updated Years: \(years)")
     }
     
     @IBAction func halfUpButtonActionTwo(_ sender: Any) {
         swap(&labelTwo.text, &labelThree.text)
+        swap(&secondEventBirthday, &thirdEventBirthday)
+        update()
+        print("Updated Years: \(years)")
     }
     
     @IBAction func halfDownButtonActionTwo(_ sender: Any) {
         swap(&labelThree.text, &labelFour.text)
+        swap(&thirdEventBirthday, &fourthEventBirthday)
+        update()
+        print("Updated Years: \(years)")
     }
     
     @IBAction func fullUpButtonAction(_ sender: Any) {
         swap(&labelThree.text, &labelFour.text)
+        swap(&thirdEventBirthday, &fourthEventBirthday)
+        update()
+        print("Updated Years: \(years)")
     }
+    
+    
     
     
     
