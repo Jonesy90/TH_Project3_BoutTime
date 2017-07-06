@@ -114,15 +114,35 @@ class ViewController: UIViewController {
             labelFour.text = fourthEvent
         }
         
-        
-        
-        
-//        labelOne.text = (firstEventName["name"]!)
-//        labelTwo.text = (secondEventName["name"]!)
-//        labelThree.text = (thirdEventName["name"]!)
-//        labelFour.text = (fourthEventName["name"]!)
-        
     }
+    
+    
+    //Swaping events when an button event happens.
+    
+    @IBAction func fullDownButtonAction(_ sender: Any) {
+        swap(&labelOne.text, &labelTwo.text)
+    }
+    
+    @IBAction func halfUpButtonActionOne(_ sender: Any) {
+        swap(&labelOne.text, &labelTwo.text)
+    }
+    
+    @IBAction func halfDownButtonActionOne(_ sender: Any) {
+        swap(&labelTwo.text, &labelThree.text)
+    }
+    
+    @IBAction func halfUpButtonActionTwo(_ sender: Any) {
+        swap(&labelTwo.text, &labelThree.text)
+    }
+    
+    @IBAction func halfDownButtonActionTwo(_ sender: Any) {
+        swap(&labelThree.text, &labelFour.text)
+    }
+    
+    @IBAction func fullUpButtonAction(_ sender: Any) {
+        swap(&labelThree.text, &labelFour.text)
+    }
+    
     
     
     override func viewDidLoad() {
