@@ -7,10 +7,25 @@
 //
 
 import UIKit
+import GameKit
 
 class ViewController: UIViewController {
     
-//    let demoEvents = TestEvents()
+    let events = Events()
+    
+    
+    var randomNumber: Int = 0
+    var repetitionStopper: [Int] = []
+    
+    var firstEventYear = 0
+    
+    
+    //List of labels
+    @IBOutlet weak var labelOne: UILabel!
+    @IBOutlet weak var labelTwo: UILabel!
+    @IBOutlet weak var labelThree: UILabel!
+    @IBOutlet weak var labelFour: UILabel!
+    
     
     //List of buttons
     @IBOutlet weak var downFullButton: UIButton!
@@ -48,13 +63,53 @@ class ViewController: UIViewController {
         upFullButton.setTitle("", for: .normal)
     }
     
+    //Generates a random number from the amount of events in the birthday events.
+    func randomNumberGenerator() {
+        randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: events.birthdays.count)
+    }
     
-
+    //TODO: Create a function that will put names of each birthday event and display it on each label.
+    func displayEventsInLabels() {
+        let labels = [labelOne, labelTwo, labelThree, labelFour]
+        
+        for _ in 0..<labels.count {
+            randomNumberGenerator()
+            while repetitionStopper.contains(randomNumber) {
+                randomNumberGenerator()
+            }
+            repetitionStopper.append(randomNumber)
+        }
+        print(repetitionStopper)
+        
+        //Placing the names from the birthday array ditionary to the labels on the UI.
+        let firstEventName = events.birthdays[repetitionStopper[0]]
+        let secondEventName = events.birthdays[repetitionStopper[1]]
+        let thirdEventName = events.birthdays[repetitionStopper[2]]
+        let fourthEventName = events.birthdays[repetitionStopper[3]]
+        
+        print("First Name: \(firstEventName)")
+        print("Second Name: \(secondEventName)")
+        print("Third Name: \(thirdEventName)")
+        print("Fourth Name: \(fourthEventName)")
+        
+        //Displaying the names in the labels.
+        
+        
+        labelOne.text = (firstEventName["name"] as! String)
+        labelTwo.text = (secondEventName["name"] as! String)
+        labelThree.text = (thirdEventName["name"] as! String)
+        labelFour.text = (fourthEventName["name"] as! String)
+        
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadButtonBackgroundImage()
-        print("Hello World")
+        displayEventsInLabels()
     }
 
     override func didReceiveMemoryWarning() {

@@ -84,6 +84,10 @@
                     </view>
                     <connections>
                         <outlet property="downFullButton" destination="Jgr-Rl-GEf" id="0rf-l0-bxg"/>
+                        <outlet property="labelFour" destination="t0M-cU-JYr" id="P5L-hi-98H"/>
+                        <outlet property="labelOne" destination="ATJ-cE-JcA" id="rY4-eB-9C5"/>
+                        <outlet property="labelThree" destination="qKi-dV-Ds7" id="30A-ce-2WK"/>
+                        <outlet property="labelTwo" destination="c0n-VV-LHJ" id="NaF-dh-7Wk"/>
                         <outlet property="secondLabelHalfDown" destination="6Oe-Vh-0du" id="nad-Pl-QB6"/>
                         <outlet property="secondLabelHalfUp" destination="5g2-3h-EiA" id="rUo-sb-EL0"/>
                         <outlet property="thirdLabelHalfDown" destination="RDL-e2-tO0" id="rbH-e4-5O9"/>
@@ -93,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-430" y="101"/>
+            <point key="canvasLocation" x="-260" y="84"/>
         </scene>
     </scenes>
 </document>
