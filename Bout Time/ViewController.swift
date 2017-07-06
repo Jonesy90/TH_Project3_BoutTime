@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     var birthdaysInOrder: [Int] = []
     
     var years: [Int] = []
-    var birthday1 = 0
-    var birthday2 = 0
-    var birthday3 = 0
-    var birthday4 = 0
+    var firstEventBirthday = 0
+    var secondEventBirthday = 0
+    var thirdEventBirthday = 0
+    var fourthEventBirthday = 0
     
     
     //List of labels
@@ -93,18 +93,16 @@ class ViewController: UIViewController {
         let fourthEvent = events.birthdays[repetitionStopper[3]]
         
         //Stores the values each event birthday.
-        birthday1 = firstEvent["birthday_year"] as! Int
-        birthday2 = secondEvent["birthday_year"] as! Int
-        birthday3 = thirdEvent["birthday_year"] as! Int
-        birthday4 = fourthEvent["birthday_year"] as! Int
+        firstEventBirthday = firstEvent["birthday_year"] as! Int
+        secondEventBirthday = secondEvent["birthday_year"] as! Int
+        thirdEventBirthday = thirdEvent["birthday_year"] as! Int
+        fourthEventBirthday = fourthEvent["birthday_year"] as! Int
         
-        years = [birthday1, birthday2, birthday3, birthday4]
+        years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
         let sortedYears = years.sorted()
         
         print("Years: \(years)")
         print("Sorted Years: \(sortedYears)")
-        
-        print("Birthday1: \(birthday1)")
         
         print("First Event: \(firstEvent)")
         print("Second Event: \(secondEvent)")
@@ -136,6 +134,7 @@ class ViewController: UIViewController {
     
     @IBAction func fullDownButtonAction(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
+        swap(&firstEventBirthday, &secondEventBirthday)
     }
     
     @IBAction func halfUpButtonActionOne(_ sender: Any) {
