@@ -12,6 +12,7 @@ import GameKit
 class ViewController: UIViewController {
     
     let events = Events()
+    let marvelMovies = MarvelMovies()
     var timer = Timer()
     
     
@@ -20,13 +21,13 @@ class ViewController: UIViewController {
     var birthdaysInOrder: [Int] = []
     var currentNumberOfRounds = 0
     let numberOfRounds = 3
-    var points: Int = 0
+    var points = 0
     
     var years: [Int] = []
-    var firstEventBirthday = 0
-    var secondEventBirthday = 0
-    var thirdEventBirthday = 0
-    var fourthEventBirthday = 0
+    var firstYearOfRelease = 0
+    var secondYearOfRelease = 0
+    var thirdYearOfRelease = 0
+    var fourthYearOfRelease = 0
     
     var timerNumber = 60
     
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
     
     //Generates a random number from the amount of events in the birthday events.
     func randomNumberGenerator() {
-        randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: events.birthdays.count)
+        randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: marvelMovies.movies.count)
     }
     
     func reset() {
@@ -92,12 +93,15 @@ class ViewController: UIViewController {
         timerLabel.text = String(timerNumber)
         startTimer()
         loadButtonBackgroundImage()
+        timerLabel.isHidden = false
     }
     
     //FIXIT: displayEvents method isn't safely unwrapping the events.
     func displayEventsInLabels() {
         reset()
         
+        
+        print("displayEventInLabels Points:  \(points)")
         print("displayEventInLabels: \(currentNumberOfRounds) out of \(numberOfRounds)")
         let labels = [labelOne, labelTwo, labelThree, labelFour]
         
@@ -111,42 +115,41 @@ class ViewController: UIViewController {
         print(repetitionStopper)
         
         //Placing the names from the birthday array ditionary to the labels on the UI.
-        let firstEvent = events.birthdays[repetitionStopper[0]]
-        let secondEvent = events.birthdays[repetitionStopper[1]]
-        let thirdEvent = events.birthdays[repetitionStopper[2]]
-        let fourthEvent = events.birthdays[repetitionStopper[3]]
+        let firstEvent = marvelMovies.movies[repetitionStopper[0]]
+        let secondEvent = marvelMovies.movies[repetitionStopper[1]]
+        let thirdEvent = marvelMovies.movies[repetitionStopper[2]]
+        let fourthEvent = marvelMovies.movies[repetitionStopper[3]]
         
         //Stores the values each event birthday.
-        firstEventBirthday = firstEvent["birthday_year"] as! Int
-        secondEventBirthday = secondEvent["birthday_year"] as! Int
-        thirdEventBirthday = thirdEvent["birthday_year"] as! Int
-        fourthEventBirthday = fourthEvent["birthday_year"] as! Int
+        firstYearOfRelease = firstEvent["yearOfRelease"] as! Int
+        secondYearOfRelease = secondEvent["yearOfRelease"] as! Int
+        thirdYearOfRelease = thirdEvent["yearOfRelease"] as! Int
+        fourthYearOfRelease = fourthEvent["yearOfRelease"] as! Int
         
-        years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
+        years = [firstYearOfRelease, secondYearOfRelease, thirdYearOfRelease, fourthYearOfRelease]
         
-        let sortedYears = years.sorted()
+        let sortedyearOfRelease = years.sorted()
         
         print("Years: \(years)")
-        print("Sorted Years: \(sortedYears)")
+        print("Sorted Years: \(sortedyearOfRelease)")
         
         //Displaying the names in the labels.
         
-        if let firstEvent = firstEvent["name"] {
+        if let firstEvent = firstEvent["moviename"] {
             labelOne.text = (firstEvent as! String)
         }
         
-        if let secondEvent = secondEvent["name"] {
+        if let secondEvent = secondEvent["moviename"] {
             labelTwo.text = (secondEvent as! String)
         }
         
-        if let thirdEvent = thirdEvent["name"] {
+        if let thirdEvent = thirdEvent["moviename"] {
             labelThree.text = (thirdEvent as! String)
         }
         
-        if let fourthEvent = fourthEvent["name"] {
+        if let fourthEvent = fourthEvent["moviename"] {
             labelFour.text = (fourthEvent as! String)
         }
-        
         
     }
     
@@ -189,6 +192,7 @@ class ViewController: UIViewController {
         swap(&years[2], &years[3])
         print("Updated Years: \(years)")
     }
+    
     //MARK: Shake Event.
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
@@ -261,6 +265,7 @@ class ViewController: UIViewController {
             print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
             swapButtonsClickable()
             nextRound()
+            points += 1
             print("Success")
         } else if doneButton.currentBackgroundImage == nextRoundFailImage {
             print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
@@ -277,7 +282,6 @@ class ViewController: UIViewController {
             performSegue(withIdentifier: "gameOverSeague", sender: nil)
             doneButton.isEnabled = false
         } else if currentNumberOfRounds < numberOfRounds {
-            points += 1
             displayEventsInLabels()
         }
     }

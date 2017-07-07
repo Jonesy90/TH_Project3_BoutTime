@@ -18,7 +18,8 @@ class GameOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scoreLabel.text = String(viewController.points)
+//        scoreLabel.text = String(viewController.points)
+        print("You scored: \(viewController.points)")
 
         // Do any additional setup after loading the view.
     }
