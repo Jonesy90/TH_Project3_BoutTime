@@ -263,15 +263,15 @@ class ViewController: UIViewController {
         currentNumberOfRounds += 1
         if doneButton.currentBackgroundImage == nextRoundSuccessImage {
             print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
-            swapButtonsClickable()
-            nextRound()
             points += 1
             print("Success")
-        } else if doneButton.currentBackgroundImage == nextRoundFailImage {
-            print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
             swapButtonsClickable()
             nextRound()
+        } else if doneButton.currentBackgroundImage == nextRoundFailImage {
+            print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
             print("Fail")
+            swapButtonsClickable()
+            nextRound()
         }
     }
     

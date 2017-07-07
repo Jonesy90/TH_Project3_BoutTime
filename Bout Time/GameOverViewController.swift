@@ -31,6 +31,7 @@ class GameOverViewController: UIViewController {
     
     @IBAction func playAgain(_ sender: Any) {
         performSegue(withIdentifier: "playAgainSegue", sender: nil)
+        viewController.points = 0
         
     }
     
