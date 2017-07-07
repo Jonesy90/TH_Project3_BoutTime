@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     var randomNumber: Int = 0
     var repetitionStopper: [Int] = []
     var birthdaysInOrder: [Int] = []
+    var currentNumberOfRounds = 0
+    let numberOfRounds = 3
+    var points = 0
     
     var years: [Int] = []
     var firstEventBirthday = 0
@@ -84,57 +87,63 @@ class ViewController: UIViewController {
     
     //FIXIT: displayEvents method isn't safely unwrapping the events.
     func displayEventsInLabels() {
-        let labels = [labelOne, labelTwo, labelThree, labelFour]
-        
-        for _ in 0..<labels.count {
-            randomNumberGenerator()
-            while repetitionStopper.contains(randomNumber) {
+        if currentNumberOfRounds != numberOfRounds {
+            let labels = [labelOne, labelTwo, labelThree, labelFour]
+            
+            for _ in 0..<labels.count {
                 randomNumberGenerator()
+                while repetitionStopper.contains(randomNumber) {
+                    randomNumberGenerator()
+                }
+                repetitionStopper.append(randomNumber)
             }
-            repetitionStopper.append(randomNumber)
+            print(repetitionStopper)
+            
+            //Placing the names from the birthday array ditionary to the labels on the UI.
+            let firstEvent = events.birthdays[repetitionStopper[0]]
+            let secondEvent = events.birthdays[repetitionStopper[1]]
+            let thirdEvent = events.birthdays[repetitionStopper[2]]
+            let fourthEvent = events.birthdays[repetitionStopper[3]]
+            
+            //Stores the values each event birthday.
+            firstEventBirthday = firstEvent["birthday_year"] as! Int
+            secondEventBirthday = secondEvent["birthday_year"] as! Int
+            thirdEventBirthday = thirdEvent["birthday_year"] as! Int
+            fourthEventBirthday = fourthEvent["birthday_year"] as! Int
+            
+            update()
+            let sortedYears = years.sorted()
+            
+            print("Years: \(years)")
+            print("Sorted Years: \(sortedYears)")
+            
+            print("First Event: \(firstEvent)")
+            print("Second Event: \(secondEvent)")
+            print("Third Event: \(thirdEvent)")
+            print("Fourth Event: \(fourthEvent)")
+            
+            //Displaying the names in the labels.
+            
+            if let firstEvent = firstEvent["name"] {
+                labelOne.text = (firstEvent as! String)
+            }
+            
+            if let secondEvent = secondEvent["name"] {
+                labelTwo.text = (secondEvent as! String)
+            }
+            
+            if let thirdEvent = thirdEvent["name"] {
+                labelThree.text = (thirdEvent as! String)
+            }
+            
+            if let fourthEvent = fourthEvent["name"] {
+                labelFour.text = (fourthEvent as! String)
+            }
+
+        } else if currentNumberOfRounds == numberOfRounds {
+            print("Game Over")
         }
-        print(repetitionStopper)
         
-        //Placing the names from the birthday array ditionary to the labels on the UI.
-        let firstEvent = events.birthdays[repetitionStopper[0]]
-        let secondEvent = events.birthdays[repetitionStopper[1]]
-        let thirdEvent = events.birthdays[repetitionStopper[2]]
-        let fourthEvent = events.birthdays[repetitionStopper[3]]
-        
-        //Stores the values each event birthday.
-        firstEventBirthday = firstEvent["birthday_year"] as! Int
-        secondEventBirthday = secondEvent["birthday_year"] as! Int
-        thirdEventBirthday = thirdEvent["birthday_year"] as! Int
-        fourthEventBirthday = fourthEvent["birthday_year"] as! Int
-        
-        update()
-        let sortedYears = years.sorted()
-        
-        print("Years: \(years)")
-        print("Sorted Years: \(sortedYears)")
-        
-        print("First Event: \(firstEvent)")
-        print("Second Event: \(secondEvent)")
-        print("Third Event: \(thirdEvent)")
-        print("Fourth Event: \(fourthEvent)")
-        
-        //Displaying the names in the labels.
-        
-        if let firstEvent = firstEvent["name"] {
-            labelOne.text = (firstEvent as! String)
-        }
-        
-        if let secondEvent = secondEvent["name"] {
-            labelTwo.text = (secondEvent as! String)
-        }
-        
-        if let thirdEvent = thirdEvent["name"] {
-            labelThree.text = (thirdEvent as! String)
-        }
-        
-        if let fourthEvent = fourthEvent["name"] {
-            labelFour.text = (fourthEvent as! String)
-        }
         
     }
     
@@ -227,7 +236,16 @@ class ViewController: UIViewController {
         secondLabelHalfDown.isEnabled = false
         thirdLabelHalfUp.isEnabled = false
         thirdLabelHalfDown.isEnabled = false
-        upFullButton.isEnabled = false        
+        upFullButton.isEnabled = false
+    }
+    
+    func swapButtonsClickable() {
+        downFullButton.isEnabled = true
+        secondLabelHalfUp.isEnabled = true
+        secondLabelHalfDown.isEnabled = true
+        thirdLabelHalfUp.isEnabled = true
+        thirdLabelHalfDown.isEnabled = true
+        upFullButton.isEnabled = true
     }
     
     func stopAndResetTime() {
@@ -235,6 +253,24 @@ class ViewController: UIViewController {
         timerNumber = 60
         timerLabel.text = String(timerNumber)
     }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        if doneButton.currentBackgroundImage == nextRoundSuccessImage {
+            points += 1
+            currentNumberOfRounds += 1
+            displayEventsInLabels()
+            swapButtonsClickable()
+            print("Points: \(points)")
+            print("Current Round: \(currentNumberOfRounds)")
+        } else if doneButton.currentBackgroundImage == nextRoundFailImage {
+            currentNumberOfRounds += 1
+            displayEventsInLabels()
+            swapButtonsClickable()
+            print("Points: \(points)")
+            print("Current Round: \(currentNumberOfRounds)")
+        }
+    }
+    
     
     //MARK: ViewDiDLoad Function
     
