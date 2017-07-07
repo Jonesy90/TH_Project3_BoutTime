@@ -85,63 +85,69 @@ class ViewController: UIViewController {
         randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: events.birthdays.count)
     }
     
+    func reset() {
+        doneButton.isHidden = true
+        descriptionLabel.text = "Shake to Complete"
+        timerLabel.text = String(timerNumber)
+        startTimer()
+        loadButtonBackgroundImage()
+    }
+    
     //FIXIT: displayEvents method isn't safely unwrapping the events.
     func displayEventsInLabels() {
-        if currentNumberOfRounds != numberOfRounds {
-            let labels = [labelOne, labelTwo, labelThree, labelFour]
-            
-            for _ in 0..<labels.count {
+        reset()
+        
+        print("displayEventInLabels: \(currentNumberOfRounds) out of \(numberOfRounds)")
+        let labels = [labelOne, labelTwo, labelThree, labelFour]
+        
+        for _ in 0..<labels.count {
+            randomNumberGenerator()
+            while repetitionStopper.contains(randomNumber) {
                 randomNumberGenerator()
-                while repetitionStopper.contains(randomNumber) {
-                    randomNumberGenerator()
-                }
-                repetitionStopper.append(randomNumber)
             }
-            print(repetitionStopper)
-            
-            //Placing the names from the birthday array ditionary to the labels on the UI.
-            let firstEvent = events.birthdays[repetitionStopper[0]]
-            let secondEvent = events.birthdays[repetitionStopper[1]]
-            let thirdEvent = events.birthdays[repetitionStopper[2]]
-            let fourthEvent = events.birthdays[repetitionStopper[3]]
-            
-            //Stores the values each event birthday.
-            firstEventBirthday = firstEvent["birthday_year"] as! Int
-            secondEventBirthday = secondEvent["birthday_year"] as! Int
-            thirdEventBirthday = thirdEvent["birthday_year"] as! Int
-            fourthEventBirthday = fourthEvent["birthday_year"] as! Int
-            
-            update()
-            let sortedYears = years.sorted()
-            
-            print("Years: \(years)")
-            print("Sorted Years: \(sortedYears)")
-            
-            print("First Event: \(firstEvent)")
-            print("Second Event: \(secondEvent)")
-            print("Third Event: \(thirdEvent)")
-            print("Fourth Event: \(fourthEvent)")
-            
-            //Displaying the names in the labels.
-            
-            if let firstEvent = firstEvent["name"] {
-                labelOne.text = (firstEvent as! String)
-            }
-            
-            if let secondEvent = secondEvent["name"] {
-                labelTwo.text = (secondEvent as! String)
-            }
-            
-            if let thirdEvent = thirdEvent["name"] {
-                labelThree.text = (thirdEvent as! String)
-            }
-            
-            if let fourthEvent = fourthEvent["name"] {
-                labelFour.text = (fourthEvent as! String)
-            }
-
-        } else if currentNumberOfRounds == numberOfRounds {
-            print("Game Over")
+            repetitionStopper.append(randomNumber)
+        }
+        print(repetitionStopper)
+        
+        //Placing the names from the birthday array ditionary to the labels on the UI.
+        let firstEvent = events.birthdays[repetitionStopper[0]]
+        let secondEvent = events.birthdays[repetitionStopper[1]]
+        let thirdEvent = events.birthdays[repetitionStopper[2]]
+        let fourthEvent = events.birthdays[repetitionStopper[3]]
+        
+        //Stores the values each event birthday.
+        firstEventBirthday = firstEvent["birthday_year"] as! Int
+        secondEventBirthday = secondEvent["birthday_year"] as! Int
+        thirdEventBirthday = thirdEvent["birthday_year"] as! Int
+        fourthEventBirthday = fourthEvent["birthday_year"] as! Int
+        
+        update()
+        let sortedYears = years.sorted()
+        
+        print("Years: \(years)")
+        print("Sorted Years: \(sortedYears)")
+        
+        //            print("First Event: \(firstEvent)")
+        //            print("Second Event: \(secondEvent)")
+        //            print("Third Event: \(thirdEvent)")
+        //            print("Fourth Event: \(fourthEvent)")
+        
+        //Displaying the names in the labels.
+        
+        if let firstEvent = firstEvent["name"] {
+            labelOne.text = (firstEvent as! String)
+        }
+        
+        if let secondEvent = secondEvent["name"] {
+            labelTwo.text = (secondEvent as! String)
+        }
+        
+        if let thirdEvent = thirdEvent["name"] {
+            labelThree.text = (thirdEvent as! String)
+        }
+        
+        if let fourthEvent = fourthEvent["name"] {
+            labelFour.text = (fourthEvent as! String)
         }
         
         
@@ -196,7 +202,6 @@ class ViewController: UIViewController {
         update()
         print("Updated Years: \(years)")
     }
-    
     //MARK: Shake Event.
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
@@ -207,13 +212,8 @@ class ViewController: UIViewController {
         stopAndResetTime()
         timerLabel.isHidden = true
         swapButtonsUnclickable()
-        if years == years.sorted() {
-            doneButton.setBackgroundImage(nextRoundSuccessImage, for: .normal)
-            print("Device Shaked - Correct")
-        } else {
-            doneButton.setBackgroundImage(nextRoundFailImage, for: .normal)
-            print("Device Sharked - Wrong")
-        }
+        sortChecker()
+
     }
     
     //MARK: - TIMER
@@ -227,6 +227,20 @@ class ViewController: UIViewController {
         
         if timerNumber == 0 {
             timer.invalidate()
+            swapButtonsUnclickable()
+            timerLabel.isHidden = true
+            doneButton.isHidden = false
+            sortChecker()
+        }
+    }
+    
+    func sortChecker() {
+        if years == years.sorted() {
+            doneButton.setBackgroundImage(nextRoundSuccessImage, for: .normal)
+            print("Current Round: \(currentNumberOfRounds)")
+        } else {
+            doneButton.setBackgroundImage(nextRoundFailImage, for: .normal)
+            print("Current Round: \(currentNumberOfRounds)")
         }
     }
     
@@ -255,21 +269,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func doneAction(_ sender: Any) {
+        currentNumberOfRounds += 1
         if doneButton.currentBackgroundImage == nextRoundSuccessImage {
-//            points += 1
-//            currentNumberOfRounds += 1
-            displayEventsInLabels()
+            print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
+            swapButtonsClickable()
+            nextRound()
             print("Success")
-//            swapButtonsClickable()
-//            print("Points: \(points)")
-//            print("Current Round: \(currentNumberOfRounds)")
         } else if doneButton.currentBackgroundImage == nextRoundFailImage {
-//            currentNumberOfRounds += 1
+            print("doneAction: \(currentNumberOfRounds) out of \(numberOfRounds)")
+            swapButtonsClickable()
+            nextRound()
+            print("Fail")
+        }
+    }
+    
+    func nextRound() {
+        if currentNumberOfRounds == numberOfRounds {
+            print("nextRound: \(currentNumberOfRounds) out of \(numberOfRounds)")
+            print("Game Over")
+            doneButton.isEnabled = false
+        } else if currentNumberOfRounds < numberOfRounds {
             displayEventsInLabels()
-            print("Failed")
-//            swapButtonsClickable()
-//            print("Points: \(points)")
-//            print("Current Round: \(currentNumberOfRounds)")
         }
     }
     
@@ -279,12 +299,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        loadButtonBackgroundImage()
         displayEventsInLabels()
-        doneButton.isHidden = true
-        descriptionLabel.text = "Shake to Complete"
-        timerLabel.text = String(timerNumber)
-        startTimer()
+
         
     }
 
