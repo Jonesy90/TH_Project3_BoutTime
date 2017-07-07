@@ -194,6 +194,10 @@ class ViewController: UIViewController {
         //Once user shakes device, it will show that they've completed the task.
         descriptionLabel.text = "Tap events to know more"
         doneButton.isHidden = false
+        //TODO: - Stop timer.
+        stopAndResetTime()
+        timerLabel.isHidden = true
+        swapButtonsUnclickable()
         if years == years.sorted() {
             doneButton.setBackgroundImage(nextRoundSuccessImage, for: .normal)
             print("Device Shaked - Correct")
@@ -204,7 +208,6 @@ class ViewController: UIViewController {
     }
     
     //MARK: - TIMER
-    
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
     }
@@ -218,6 +221,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func swapButtonsUnclickable() {
+        downFullButton.isEnabled = false
+        secondLabelHalfUp.isEnabled = false
+        secondLabelHalfDown.isEnabled = false
+        thirdLabelHalfUp.isEnabled = false
+        thirdLabelHalfDown.isEnabled = false
+        upFullButton.isEnabled = false        
+    }
+    
+    func stopAndResetTime() {
+        timer.invalidate()
+        timerNumber = 60
+        timerLabel.text = String(timerNumber)
+    }
     
     //MARK: ViewDiDLoad Function
     
