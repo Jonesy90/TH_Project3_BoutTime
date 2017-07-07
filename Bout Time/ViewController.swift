@@ -12,6 +12,7 @@ import GameKit
 class ViewController: UIViewController {
     
     let events = Events()
+    var timer = Timer()
     
     
     var randomNumber: Int = 0
@@ -24,14 +25,18 @@ class ViewController: UIViewController {
     var thirdEventBirthday = 0
     var fourthEventBirthday = 0
     
+    var timerNumber = 60
     
+    //MARK: Labels
     //List of labels
     @IBOutlet weak var labelOne: UILabel!
     @IBOutlet weak var labelTwo: UILabel!
     @IBOutlet weak var labelThree: UILabel!
     @IBOutlet weak var labelFour: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
-    
+    //MARK: Buttons
     //List of buttons
     @IBOutlet weak var downFullButton: UIButton!
     @IBOutlet weak var secondLabelHalfUp: UIButton!
@@ -39,13 +44,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdLabelHalfUp: UIButton!
     @IBOutlet weak var thirdLabelHalfDown: UIButton!
     @IBOutlet weak var upFullButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
-    
+    //MARK: Assigning images to UIImages.
     //Giving each image provided it's own UIImage.
     let fullDownImage = UIImage(named: "down_full.png")
     let downHalfImage = UIImage(named: "down_half.png")
     let upHalfImage = UIImage(named: "up_half.png")
     let fullUpImage = UIImage(named: "up_full.png")
+    let nextRoundSuccessImage = UIImage(named: "next_round_success")
+    let nextRoundFailImage = UIImage(named: "next_round_fail")
     
     
     //Giving the buttons the correct background images.
@@ -66,6 +74,7 @@ class ViewController: UIViewController {
         thirdLabelHalfUp.setTitle("", for: .normal)
         thirdLabelHalfDown.setTitle("", for: .normal)
         upFullButton.setTitle("", for: .normal)
+        doneButton.setTitle("", for: .normal)
     }
     
     //Generates a random number from the amount of events in the birthday events.
@@ -133,6 +142,7 @@ class ViewController: UIViewController {
         years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
     }
     
+    //MARK: Button Events.
     
     //Swaping events when a button event happens.
     
@@ -178,23 +188,49 @@ class ViewController: UIViewController {
         print("Updated Years: \(years)")
     }
     
+    //MARK: Shake Event.
     
-    @IBAction func doneButton(_ sender: Any) {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        //Once user shakes device, it will show that they've completed the task.
+        descriptionLabel.text = "Tap events to know more"
+        doneButton.isHidden = false
         if years == years.sorted() {
-            print("Sorted")
+            doneButton.setBackgroundImage(nextRoundSuccessImage, for: .normal)
+            print("Device Shaked - Correct")
         } else {
-            print("Not Sorted")
+            doneButton.setBackgroundImage(nextRoundFailImage, for: .normal)
+            print("Device Sharked - Wrong")
         }
+    }
+    
+    //MARK: - TIMER
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
+    }
+    
+    func counter() {
+        timerNumber -= 1
+        timerLabel.text = String(timerNumber)
         
+        if timerNumber == 0 {
+            timer.invalidate()
+        }
     }
     
     
+    //MARK: ViewDiDLoad Function
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadButtonBackgroundImage()
         displayEventsInLabels()
+        doneButton.isHidden = true
+        descriptionLabel.text = "Shake to Complete"
+        timerLabel.text = String(timerNumber)
+        startTimer()
+        
     }
 
     override func didReceiveMemoryWarning() {

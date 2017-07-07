@@ -98,17 +98,30 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3l-cl-aoS">
-                                <rect key="frame" x="146" y="576" width="37" height="30"/>
+                                <rect key="frame" x="107" y="562" width="161" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="doneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Nn-XX-XMZ"/>
-                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXg-dh-5TB">
+                                <rect key="frame" x="16" y="615" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxZ-dN-9g1">
+                                <rect key="frame" x="16" y="562" width="343" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16470588235294117" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="iXg-dh-5TB" id="huh-S9-ExG"/>
+                        <outlet property="doneButton" destination="q3l-cl-aoS" id="1zd-GV-MKL"/>
                         <outlet property="downFullButton" destination="Jgr-Rl-GEf" id="0rf-l0-bxg"/>
                         <outlet property="labelFour" destination="t0M-cU-JYr" id="P5L-hi-98H"/>
                         <outlet property="labelOne" destination="ATJ-cE-JcA" id="rY4-eB-9C5"/>
@@ -118,12 +131,13 @@
                         <outlet property="secondLabelHalfUp" destination="5g2-3h-EiA" id="rUo-sb-EL0"/>
                         <outlet property="thirdLabelHalfDown" destination="RDL-e2-tO0" id="rbH-e4-5O9"/>
                         <outlet property="thirdLabelHalfUp" destination="Fvp-76-3Qy" id="KOl-zm-y3K"/>
+                        <outlet property="timerLabel" destination="IxZ-dN-9g1" id="kWf-Ql-xiy"/>
                         <outlet property="upFullButton" destination="oPt-Zj-RGu" id="oKm-TZ-UTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260" y="84"/>
+            <point key="canvasLocation" x="-260" y="83.208395802098963"/>
         </scene>
     </scenes>
 </document>
