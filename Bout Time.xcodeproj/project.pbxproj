@@ -32,6 +32,7 @@
 		B2208E791F094CCD00905027 /* up_half.png in Resources */ = {isa = PBXBuildFile; fileRef = B2208E651F094CCD00905027 /* up_half.png */; };
 		B2208E7A1F094CCD00905027 /* webview_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = B2208E661F094CCD00905027 /* webview_bar.png */; };
 		B2FB34101F0E3F4700EEF980 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB340F1F0E3F4700EEF980 /* Events.swift */; };
+		B2FB34121F0FC60E00EEF980 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB34111F0FC60E00EEF980 /* GameOverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		B2208E651F094CCD00905027 /* up_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up_half.png; sourceTree = "<group>"; };
 		B2208E661F094CCD00905027 /* webview_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webview_bar.png; sourceTree = "<group>"; };
 		B2FB340F1F0E3F4700EEF980 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		B2FB34111F0FC60E00EEF980 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				B2208E521F094CAE00905027 /* Images */,
 				B2208E401F094B8600905027 /* AppDelegate.swift */,
+				B2FB34111F0FC60E00EEF980 /* GameOverViewController.swift */,
 				B2208E421F094B8600905027 /* ViewController.swift */,
 				B2208E441F094B8600905027 /* Main.storyboard */,
 				B2208E471F094B8600905027 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2FB34121F0FC60E00EEF980 /* GameOverViewController.swift in Sources */,
 				B2FB34101F0E3F4700EEF980 /* Events.swift in Sources */,
 				B2208E431F094B8600905027 /* ViewController.swift in Sources */,
 				B2208E411F094B8600905027 /* AppDelegate.swift in Sources */,

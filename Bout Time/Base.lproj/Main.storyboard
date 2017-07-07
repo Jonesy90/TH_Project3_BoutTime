@@ -136,11 +136,62 @@
                         <outlet property="thirdLabelHalfUp" destination="Fvp-76-3Qy" id="KOl-zm-y3K"/>
                         <outlet property="timerLabel" destination="IxZ-dN-9g1" id="kWf-Ql-xiy"/>
                         <outlet property="upFullButton" destination="oPt-Zj-RGu" id="oKm-TZ-UTh"/>
+                        <segue destination="elX-ar-xHt" kind="show" identifier="gameOverSeague" id="Ivo-Vq-6m5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-444" y="68"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="zj2-Mp-bHQ">
+            <objects>
+                <viewController id="elX-ar-xHt" customClass="GameOverViewController" customModule="Bout_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zll-WQ-efm"/>
+                        <viewControllerLayoutGuide type="bottom" id="CkD-0Z-EDw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y3L-up-gl3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19R-ja-Nqz">
+                                <rect key="frame" x="97" y="442" width="180" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.19847723841667175" green="0.56266999244689941" blue="0.70875757932662964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgain:" destination="elX-ar-xHt" eventType="touchUpInside" id="atq-Nr-fK4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-fU-zbn">
+                                <rect key="frame" x="114" y="267" width="147" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-Pn-yDo">
+                                <rect key="frame" x="114" y="212" width="147" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.19847723841667175" green="0.56266999244689941" blue="0.70875757932662964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.16470588235294117" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="g2l-fU-zbn" id="nVm-GD-oc9"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="playAgainSegue" id="Vec-dS-TOL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rnl-fw-LnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="460" y="68"/>
         </scene>
     </scenes>
 </document>

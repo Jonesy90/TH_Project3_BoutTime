@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var birthdaysInOrder: [Int] = []
     var currentNumberOfRounds = 0
     let numberOfRounds = 3
-    var points = 0
+    var points: Int = 0
     
     var years: [Int] = []
     var firstEventBirthday = 0
@@ -86,6 +86,7 @@ class ViewController: UIViewController {
     }
     
     func reset() {
+        repetitionStopper = []
         doneButton.isHidden = true
         descriptionLabel.text = "Shake to Complete"
         timerLabel.text = String(timerNumber)
@@ -121,16 +122,12 @@ class ViewController: UIViewController {
         thirdEventBirthday = thirdEvent["birthday_year"] as! Int
         fourthEventBirthday = fourthEvent["birthday_year"] as! Int
         
-        update()
+        years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
+        
         let sortedYears = years.sorted()
         
         print("Years: \(years)")
         print("Sorted Years: \(sortedYears)")
-        
-        //            print("First Event: \(firstEvent)")
-        //            print("Second Event: \(secondEvent)")
-        //            print("Third Event: \(thirdEvent)")
-        //            print("Fourth Event: \(fourthEvent)")
         
         //Displaying the names in the labels.
         
@@ -153,53 +150,43 @@ class ViewController: UIViewController {
         
     }
     
-    func update() {
-        years = [firstEventBirthday, secondEventBirthday, thirdEventBirthday, fourthEventBirthday]
-    }
-    
     //MARK: Button Events.
     
     //Swaping events when a button event happens.
     
     @IBAction func fullDownButtonAction(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
-        swap(&firstEventBirthday, &secondEventBirthday)
-        update()
+        swap(&years[0], &years[1])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfUpButtonActionOne(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
-        swap(&firstEventBirthday, &secondEventBirthday)
-        update()
+        swap(&years[0], &years[1])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfDownButtonActionOne(_ sender: Any) {
         swap(&labelTwo.text, &labelThree.text)
-        swap(&secondEventBirthday, &thirdEventBirthday)
-        update()
+        swap(&years[1], &years[2])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfUpButtonActionTwo(_ sender: Any) {
         swap(&labelTwo.text, &labelThree.text)
-        swap(&secondEventBirthday, &thirdEventBirthday)
-        update()
+        swap(&years[1], &years[2])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfDownButtonActionTwo(_ sender: Any) {
         swap(&labelThree.text, &labelFour.text)
-        swap(&thirdEventBirthday, &fourthEventBirthday)
-        update()
+        swap(&years[2], &years[3])
         print("Updated Years: \(years)")
     }
     
     @IBAction func fullUpButtonAction(_ sender: Any) {
         swap(&labelThree.text, &labelFour.text)
-        swap(&thirdEventBirthday, &fourthEventBirthday)
-        update()
+        swap(&years[2], &years[3])
         print("Updated Years: \(years)")
     }
     //MARK: Shake Event.
@@ -287,8 +274,10 @@ class ViewController: UIViewController {
         if currentNumberOfRounds == numberOfRounds {
             print("nextRound: \(currentNumberOfRounds) out of \(numberOfRounds)")
             print("Game Over")
+            performSegue(withIdentifier: "gameOverSeague", sender: nil)
             doneButton.isEnabled = false
         } else if currentNumberOfRounds < numberOfRounds {
+            points += 1
             displayEventsInLabels()
         }
     }
