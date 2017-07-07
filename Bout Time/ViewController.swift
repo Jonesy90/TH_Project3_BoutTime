@@ -256,18 +256,20 @@ class ViewController: UIViewController {
     
     @IBAction func doneAction(_ sender: Any) {
         if doneButton.currentBackgroundImage == nextRoundSuccessImage {
-            points += 1
-            currentNumberOfRounds += 1
+//            points += 1
+//            currentNumberOfRounds += 1
             displayEventsInLabels()
-            swapButtonsClickable()
-            print("Points: \(points)")
-            print("Current Round: \(currentNumberOfRounds)")
+            print("Success")
+//            swapButtonsClickable()
+//            print("Points: \(points)")
+//            print("Current Round: \(currentNumberOfRounds)")
         } else if doneButton.currentBackgroundImage == nextRoundFailImage {
-            currentNumberOfRounds += 1
+//            currentNumberOfRounds += 1
             displayEventsInLabels()
-            swapButtonsClickable()
-            print("Points: \(points)")
-            print("Current Round: \(currentNumberOfRounds)")
+            print("Failed")
+//            swapButtonsClickable()
+//            print("Points: \(points)")
+//            print("Current Round: \(currentNumberOfRounds)")
         }
     }
     
