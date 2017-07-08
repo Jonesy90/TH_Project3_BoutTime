@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     var secondLink = ""
     var thirdLink = ""
     var fourthLink = ""
+    var destinationURL = ""
     
     var timerNumber = 60
     
@@ -243,16 +244,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func labelButtonOneAction(_ sender: Any) {
+        destinationURL = urlLinks[0]
+        print(destinationURL)
         performSegue(withIdentifier: "urlSegue", sender: nil)
     }
     @IBAction func labelButtonTwoAction(_ sender: Any) {
-        performSegue(withIdentifier: "urlSegue", sender: nil)
+//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        destinationURL = urlLinks[1]
+        print(destinationURL)
     }
     @IBAction func labelButtonThreeAction(_ sender: Any) {
-        performSegue(withIdentifier: "urlSegue", sender: nil)
+//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        destinationURL = urlLinks[2]
+        print(destinationURL)
     }
     @IBAction func labelButtonFourAction(_ sender: Any) {
-        performSegue(withIdentifier: "urlSegue", sender: nil)
+//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        destinationURL = urlLinks[3]
+        print(destinationURL)
     }
     
     
@@ -365,9 +374,13 @@ class ViewController: UIViewController {
             if let totalScore = segue.destination as? GameOverViewController {
                 totalScore.score = points
             }
-        }
+        } else if segue.identifier == "urlSegue" {
+            if let webLink = segue.destination as? WebViewController {
+                webLink.urlString = destinationURL
+            }
     }
-    
+}
+
     
 
 }

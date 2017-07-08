@@ -12,15 +12,17 @@ class WebViewController: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
     
-
+    var urlString = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        let url = URL(string: "https://www.google.co.uk")
-        webView.loadRequest(URLRequest(url: url!))
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let movieURL = URL(fileURLWithPath: urlString)
+        let movieURLRequest = URLRequest(url: movieURL)
+        webView.loadRequest(movieURLRequest)
+        print("URL String: \(urlString)")
     }
 
     override func didReceiveMemoryWarning() {
