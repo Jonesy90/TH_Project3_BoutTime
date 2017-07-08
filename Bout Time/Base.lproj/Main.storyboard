@@ -119,6 +119,38 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Har-kt-1R4">
+                                <rect key="frame" x="16" y="28" width="296" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 1"/>
+                                <connections>
+                                    <action selector="labelButtonOneAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B0C-7J-G2w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVZ-V3-VhX">
+                                <rect key="frame" x="16" y="298" width="296" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 3"/>
+                                <connections>
+                                    <action selector="labelButtonThreeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jUe-co-VcX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOY-2O-bML">
+                                <rect key="frame" x="16" y="162" width="296" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 2"/>
+                                <connections>
+                                    <action selector="labelButtonTwoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Xz-jU-I9W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZR-Oy-Eih">
+                                <rect key="frame" x="16" y="432" width="296" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button 4"/>
+                                <connections>
+                                    <action selector="labelButtonFourAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQ0-pl-ohU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16470588235294117" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -126,6 +158,10 @@
                         <outlet property="descriptionLabel" destination="iXg-dh-5TB" id="huh-S9-ExG"/>
                         <outlet property="doneButton" destination="q3l-cl-aoS" id="1zd-GV-MKL"/>
                         <outlet property="downFullButton" destination="Jgr-Rl-GEf" id="0rf-l0-bxg"/>
+                        <outlet property="labelButtonFour" destination="wZR-Oy-Eih" id="GWQ-j8-bOa"/>
+                        <outlet property="labelButtonOne" destination="Har-kt-1R4" id="tdT-C3-Ix6"/>
+                        <outlet property="labelButtonThree" destination="mVZ-V3-VhX" id="a53-1C-Pqm"/>
+                        <outlet property="labelButtonTwo" destination="XOY-2O-bML" id="lM8-ha-Y7L"/>
                         <outlet property="labelFour" destination="t0M-cU-JYr" id="P5L-hi-98H"/>
                         <outlet property="labelOne" destination="ATJ-cE-JcA" id="rY4-eB-9C5"/>
                         <outlet property="labelThree" destination="qKi-dV-Ds7" id="30A-ce-2WK"/>
@@ -137,11 +173,12 @@
                         <outlet property="timerLabel" destination="IxZ-dN-9g1" id="kWf-Ql-xiy"/>
                         <outlet property="upFullButton" destination="oPt-Zj-RGu" id="oKm-TZ-UTh"/>
                         <segue destination="elX-ar-xHt" kind="show" identifier="gameOverSegue" id="Ivo-Vq-6m5"/>
+                        <segue destination="71S-Qk-H02" kind="show" identifier="urlSegue" id="hWo-2P-SFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-444" y="68"/>
+            <point key="canvasLocation" x="-444" y="67.916041979010501"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="zj2-Mp-bHQ">
@@ -192,6 +229,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnl-fw-LnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="460" y="68"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="IAW-CZ-G4X">
+            <objects>
+                <viewController id="71S-Qk-H02" customClass="WebViewController" customModule="Bout_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QLB-UT-dzW"/>
+                        <viewControllerLayoutGuide type="bottom" id="c5J-Eg-zNp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xwd-qt-2jP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5rC-xl-1fG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5rC-xl-1fG" id="efo-2y-Hdf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7OZ-4u-AMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="460" y="774.96251874062978"/>
         </scene>
     </scenes>
 </document>

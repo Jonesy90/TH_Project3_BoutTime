@@ -29,6 +29,12 @@ class ViewController: UIViewController {
     var thirdYearOfRelease = 0
     var fourthYearOfRelease = 0
     
+    var urlLinks: [String] = []
+    var firstLink = ""
+    var secondLink = ""
+    var thirdLink = ""
+    var fourthLink = ""
+    
     var timerNumber = 60
     
     //MARK: Labels
@@ -49,6 +55,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var thirdLabelHalfDown: UIButton!
     @IBOutlet weak var upFullButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    
+    @IBOutlet weak var labelButtonOne: UIButton!
+    @IBOutlet weak var labelButtonTwo: UIButton!
+    @IBOutlet weak var labelButtonThree: UIButton!
+    @IBOutlet weak var labelButtonFour: UIButton!
+    
     
     //MARK: Assigning images to UIImages.
     //Giving each image provided it's own UIImage.
@@ -79,6 +91,11 @@ class ViewController: UIViewController {
         thirdLabelHalfDown.setTitle("", for: .normal)
         upFullButton.setTitle("", for: .normal)
         doneButton.setTitle("", for: .normal)
+        
+        labelButtonOne.setTitle("", for: .normal)
+        labelButtonTwo.setTitle("", for: .normal)
+        labelButtonThree.setTitle("", for: .normal)
+        labelButtonFour.setTitle("", for: .normal)
     }
     
     //Generates a random number from the amount of events in the birthday events.
@@ -94,6 +111,11 @@ class ViewController: UIViewController {
         startTimer()
         loadButtonBackgroundImage()
         timerLabel.isHidden = false
+        labelButtonOne.isEnabled = false
+        labelButtonTwo.isEnabled = false
+        labelButtonThree.isEnabled = false
+        labelButtonFour.isEnabled = false
+        
     }
     
     //FIXIT: displayEvents method isn't safely unwrapping the events.
@@ -126,7 +148,13 @@ class ViewController: UIViewController {
         thirdYearOfRelease = thirdEvent["yearOfRelease"] as! Int
         fourthYearOfRelease = fourthEvent["yearOfRelease"] as! Int
         
+        firstLink = firstEvent["IMDBLink"] as! String
+        secondLink = secondEvent["IMDBLink"] as! String
+        thirdLink = thirdEvent["IMDBLink"] as! String
+        fourthLink = fourthEvent["IMDBLink"] as! String
+        
         years = [firstYearOfRelease, secondYearOfRelease, thirdYearOfRelease, fourthYearOfRelease]
+        urlLinks = [firstLink, secondLink, thirdLink, fourthLink]
         
         let sortedyearOfRelease = years.sorted()
         
@@ -160,36 +188,42 @@ class ViewController: UIViewController {
     @IBAction func fullDownButtonAction(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
         swap(&years[0], &years[1])
+        swap(&urlLinks[0], &urlLinks[1])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfUpButtonActionOne(_ sender: Any) {
         swap(&labelOne.text, &labelTwo.text)
         swap(&years[0], &years[1])
+        swap(&urlLinks[0], &urlLinks[1])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfDownButtonActionOne(_ sender: Any) {
         swap(&labelTwo.text, &labelThree.text)
         swap(&years[1], &years[2])
+        swap(&urlLinks[1], &urlLinks[2])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfUpButtonActionTwo(_ sender: Any) {
         swap(&labelTwo.text, &labelThree.text)
         swap(&years[1], &years[2])
+        swap(&urlLinks[1], &urlLinks[2])
         print("Updated Years: \(years)")
     }
     
     @IBAction func halfDownButtonActionTwo(_ sender: Any) {
         swap(&labelThree.text, &labelFour.text)
         swap(&years[2], &years[3])
+        swap(&urlLinks[2], &urlLinks[3])
         print("Updated Years: \(years)")
     }
     
     @IBAction func fullUpButtonAction(_ sender: Any) {
         swap(&labelThree.text, &labelFour.text)
         swap(&years[2], &years[3])
+        swap(&urlLinks[2], &urlLinks[3])
         print("Updated Years: \(years)")
     }
     
@@ -204,8 +238,25 @@ class ViewController: UIViewController {
         timerLabel.isHidden = true
         swapButtonsUnclickable()
         sortChecker()
-
+        labelButtonsClickable()
+        
     }
+    
+    @IBAction func labelButtonOneAction(_ sender: Any) {
+        performSegue(withIdentifier: "urlSegue", sender: nil)
+    }
+    @IBAction func labelButtonTwoAction(_ sender: Any) {
+        performSegue(withIdentifier: "urlSegue", sender: nil)
+    }
+    @IBAction func labelButtonThreeAction(_ sender: Any) {
+        performSegue(withIdentifier: "urlSegue", sender: nil)
+    }
+    @IBAction func labelButtonFourAction(_ sender: Any) {
+        performSegue(withIdentifier: "urlSegue", sender: nil)
+    }
+    
+    
+    
     
     //MARK: - TIMER
     func startTimer() {
@@ -251,6 +302,13 @@ class ViewController: UIViewController {
         thirdLabelHalfUp.isEnabled = true
         thirdLabelHalfDown.isEnabled = true
         upFullButton.isEnabled = true
+    }
+    
+    func labelButtonsClickable() {
+        labelButtonOne.isEnabled = true
+        labelButtonTwo.isEnabled = true
+        labelButtonThree.isEnabled = true
+        labelButtonFour.isEnabled = true
     }
     
     func stopAndResetTime() {
