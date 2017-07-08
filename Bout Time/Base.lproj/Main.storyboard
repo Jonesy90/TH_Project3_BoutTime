@@ -136,7 +136,7 @@
                         <outlet property="thirdLabelHalfUp" destination="Fvp-76-3Qy" id="KOl-zm-y3K"/>
                         <outlet property="timerLabel" destination="IxZ-dN-9g1" id="kWf-Ql-xiy"/>
                         <outlet property="upFullButton" destination="oPt-Zj-RGu" id="oKm-TZ-UTh"/>
-                        <segue destination="elX-ar-xHt" kind="show" identifier="gameOverSeague" id="Ivo-Vq-6m5"/>
+                        <segue destination="elX-ar-xHt" kind="show" identifier="gameOverSegue" id="Ivo-Vq-6m5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

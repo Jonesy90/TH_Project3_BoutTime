@@ -279,7 +279,7 @@ class ViewController: UIViewController {
         if currentNumberOfRounds == numberOfRounds {
             print("nextRound: \(currentNumberOfRounds) out of \(numberOfRounds)")
             print("Game Over")
-            performSegue(withIdentifier: "gameOverSeague", sender: nil)
+            performSegue(withIdentifier: "gameOverSegue", sender: nil)
             doneButton.isEnabled = false
         } else if currentNumberOfRounds < numberOfRounds {
             displayEventsInLabels()
@@ -301,7 +301,16 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gameOverSegue" {
+            if let totalScore = segue.destination as? GameOverViewController {
+                totalScore.score = points
+            }
+        }
+    }
+    
+    
 
 }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class GameOverViewController: UIViewController {
     
-    let viewController = ViewController()
+    var score = 0
     
     @IBOutlet weak var scoreLabel: UILabel!
 
@@ -18,10 +18,8 @@ class GameOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        scoreLabel.text = String(viewController.points)
-        print("You scored: \(viewController.points)")
-
-        // Do any additional setup after loading the view.
+        print("Your score is \(score)")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +29,6 @@ class GameOverViewController: UIViewController {
     
     @IBAction func playAgain(_ sender: Any) {
         performSegue(withIdentifier: "playAgainSegue", sender: nil)
-        viewController.points = 0
         
     }
     
