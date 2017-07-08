@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var repetitionStopper: [Int] = []
     var birthdaysInOrder: [Int] = []
     var currentNumberOfRounds = 0
-    let numberOfRounds = 3
+    let numberOfRounds = 6
     var points = 0
     
     var years: [Int] = []
@@ -373,6 +373,7 @@ class ViewController: UIViewController {
         if segue.identifier == "gameOverSegue" {
             if let totalScore = segue.destination as? GameOverViewController {
                 totalScore.score = points
+                totalScore.totalRounds = numberOfRounds
             }
         } else if segue.identifier == "urlSegue" {
             if let webLink = segue.destination as? WebViewController {

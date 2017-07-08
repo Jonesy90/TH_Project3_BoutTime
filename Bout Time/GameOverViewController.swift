@@ -11,6 +11,7 @@ import UIKit
 class GameOverViewController: UIViewController {
     
     var score = 0
+    var totalRounds = 0
     
     @IBOutlet weak var scoreLabel: UILabel!
 
@@ -19,6 +20,8 @@ class GameOverViewController: UIViewController {
         super.viewDidLoad()
         
         print("Your score is \(score)")
+        scoreLabel.text = String("\(score)/\(totalRounds)")
+        
         
     }
 
