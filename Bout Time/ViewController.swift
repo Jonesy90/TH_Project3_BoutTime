@@ -11,7 +11,6 @@ import GameKit
 
 class ViewController: UIViewController {
     
-    let events = Events()
     let marvelMovies = MarvelMovies()
     var timer = Timer()
     
