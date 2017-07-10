@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -192,10 +193,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19R-ja-Nqz">
-                                <rect key="frame" x="97" y="442" width="180" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-fU-zbn">
+                                <rect key="frame" x="114" y="298" width="147" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="2xU-zH-gCx"/>
+                                    <constraint firstAttribute="height" constant="55" id="YRX-MA-X9o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-Pn-yDo">
+                                <rect key="frame" x="114" y="236" width="147" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="Qqe-6x-uze"/>
+                                    <constraint firstAttribute="height" constant="23" id="ai1-SU-ICX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.19847723841667175" green="0.56266999244689941" blue="0.70875757932662964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19R-ja-Nqz">
+                                <rect key="frame" x="97" y="443" width="180" height="68"/>
                                 <color key="backgroundColor" red="0.19847723841667175" green="0.56266999244689941" blue="0.70875757932662964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="H55-i7-4iZ"/>
+                                    <constraint firstAttribute="height" constant="68" id="g8f-1R-0K6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Play Again">
                                     <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -204,22 +228,17 @@
                                     <action selector="playAgain:" destination="elX-ar-xHt" eventType="touchUpInside" id="atq-Nr-fK4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-fU-zbn">
-                                <rect key="frame" x="114" y="267" width="147" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBF-Pn-yDo">
-                                <rect key="frame" x="114" y="212" width="147" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.19847723841667175" green="0.56266999244689941" blue="0.70875757932662964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.16470588235294117" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CkD-0Z-EDw" firstAttribute="top" secondItem="19R-ja-Nqz" secondAttribute="bottom" constant="156" id="KLp-Tu-2Mi"/>
+                            <constraint firstItem="g2l-fU-zbn" firstAttribute="leading" secondItem="y3L-up-gl3" secondAttribute="leadingMargin" constant="98" id="KU2-lV-j3Q"/>
+                            <constraint firstItem="g2l-fU-zbn" firstAttribute="top" secondItem="bBF-Pn-yDo" secondAttribute="bottom" constant="39" id="aHi-P6-yac"/>
+                            <constraint firstItem="bBF-Pn-yDo" firstAttribute="top" secondItem="Zll-WQ-efm" secondAttribute="bottom" constant="216" id="cfd-r4-gg5"/>
+                            <constraint firstItem="19R-ja-Nqz" firstAttribute="top" secondItem="g2l-fU-zbn" secondAttribute="bottom" constant="90" id="d3Y-Cl-hh7"/>
+                            <constraint firstItem="bBF-Pn-yDo" firstAttribute="leading" secondItem="y3L-up-gl3" secondAttribute="leadingMargin" constant="98" id="r47-LB-dsC"/>
+                            <constraint firstItem="19R-ja-Nqz" firstAttribute="leading" secondItem="y3L-up-gl3" secondAttribute="leadingMargin" constant="81" id="r8y-O4-dkq"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="scoreLabel" destination="g2l-fU-zbn" id="nVm-GD-oc9"/>
