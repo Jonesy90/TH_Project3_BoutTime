@@ -11,7 +11,7 @@ import GameKit
 
 class ViewController: UIViewController {
     
-    let marvelMovies = MarvelMovies()
+    let commicMovies = ComicMovies()
     var timer = Timer()
     
     
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
     
     //Generates a random number from the amount of events in the birthday events.
     func randomNumberGenerator() {
-        randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: marvelMovies.movies.count)
+        randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: commicMovies.movies.count)
     }
     
     func reset() {
@@ -137,10 +137,10 @@ class ViewController: UIViewController {
         print(repetitionStopper)
         
         //Placing the names from the birthday array ditionary to the labels on the UI.
-        let firstEvent = marvelMovies.movies[repetitionStopper[0]]
-        let secondEvent = marvelMovies.movies[repetitionStopper[1]]
-        let thirdEvent = marvelMovies.movies[repetitionStopper[2]]
-        let fourthEvent = marvelMovies.movies[repetitionStopper[3]]
+        let firstEvent = commicMovies.movies[repetitionStopper[0]]
+        let secondEvent = commicMovies.movies[repetitionStopper[1]]
+        let thirdEvent = commicMovies.movies[repetitionStopper[2]]
+        let fourthEvent = commicMovies.movies[repetitionStopper[3]]
         
         //Stores the values each event birthday.
         firstYearOfRelease = firstEvent["yearOfRelease"] as! Int
@@ -245,7 +245,7 @@ class ViewController: UIViewController {
     @IBAction func labelButtonOneAction(_ sender: Any) {
         destinationURL = urlLinks[0]
         print(destinationURL)
-        performSegue(withIdentifier: "urlSegue", sender: nil)
+//        performSegue(withIdentifier: "urlSegue", sender: nil)
     }
     @IBAction func labelButtonTwoAction(_ sender: Any) {
 //        performSegue(withIdentifier: "urlSegue", sender: nil)
@@ -281,6 +281,7 @@ class ViewController: UIViewController {
             timerLabel.isHidden = true
             doneButton.isHidden = false
             sortChecker()
+            stopAndResetTime()
         }
     }
     
@@ -359,7 +360,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         displayEventsInLabels()
-
         
     }
 

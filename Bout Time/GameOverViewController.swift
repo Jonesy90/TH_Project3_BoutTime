@@ -22,7 +22,6 @@ class GameOverViewController: UIViewController {
         print("Your score is \(score)")
         scoreLabel.text = String("\(score)/\(totalRounds)")
         
-        
     }
 
     override func didReceiveMemoryWarning() {

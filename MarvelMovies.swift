@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MarvelMovies {
+struct ComicMovies {
     let movies = [
     [
         "moviename": "Iron Man",
@@ -90,6 +90,95 @@ struct MarvelMovies {
         "yearOfRelease": 2017,
         "IMDBLink": "http://www.imdb.com/title/tt2250912/?ref_=nv_sr_1"
     ],
-    
+    [
+        "moviename": "Batman Begins",
+        "yearOfRelease": 2005,
+        "IMDBLink": "http://www.imdb.com/title/tt0372784/"
+    ],
+    [
+        "moviename": "The Dark Knights",
+        "yearOfRelease": 2005,
+        "IMDBLink": "http://www.imdb.com/title/tt0468569/?ref_=fn_al_tt_1"
+    ],
+    [
+        "moviename": "The Dark Knight Rises",
+        "yearOfRelease": 2012,
+        "IMDBLink": "http://www.imdb.com/title/tt1345836/?ref_=fn_al_tt_1"
+    ],
+    [
+        "moviename": "Man Of Steal",
+        "yearOfRelease": 2013,
+        "IMDBLink": "http://www.imdb.com/title/tt0770828/?ref_=fn_al_tt_1"
+    ],
+    [
+        "moviename": "Batman Vs Superman: Dawn of Justice",
+        "yearOfRelease": 2016,
+        "IMDBLink": "http://www.imdb.com/title/tt2975590/?ref_=nv_sr_3"
+    ],
+    [
+        "moviename": "The Amazing Spider-Man",
+        "yearOfRelease": 2012,
+        "IMDBLink": "http://www.imdb.com/title/tt0948470/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "The Amazing Spider-Man 2",
+        "yearOfRelease": 2014,
+        "IMDBLink": "http://www.imdb.com/title/tt1872181/?ref_=nv_sr_2"
+    ],
+    [
+        "moviename": "Suicide Squad",
+        "yearOfRelease": 2016,
+        "IMDBLink": "http://www.imdb.com/title/tt1386697/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "Deadpool",
+        "yearOfRelease": 2016,
+        "IMDBLink": "http://www.imdb.com/title/tt1431045/?ref_=nv_sr_2"
+    ],
+    [
+        "moviename": "X-Men",
+        "yearOfRelease": 2000,
+        "IMDBLink": "http://www.imdb.com/title/tt0120903/?ref_=nv_sr_6"
+    ],
+    [
+        "moviename": "X-Men 2",
+        "yearOfRelease": 2003,
+        "IMDBLink": "http://www.imdb.com/title/tt0290334/?ref_=fn_al_tt_1"
+    ],
+    [
+        "moviename": "X-Men: The Last Stand",
+        "yearOfRelease": 2006,
+        "IMDBLink": "http://www.imdb.com/title/tt0376994/?ref_=nv_sr_2"
+    ],
+    [
+        "moviename": "X-Men Origins: Wolverine",
+        "yearOfRelease": 2009,
+        "IMDBLink": "http://www.imdb.com/title/tt0458525/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "X-Men First Class",
+        "yearOfRelease": 2011,
+        "IMDBLink": "http://www.imdb.com/title/tt1270798/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "The Wolverine",
+        "yearOfRelease": 2013,
+        "IMDBLink": "http://www.imdb.com/title/tt1430132/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "X-Men: Days of Future Past",
+        "yearOfRelease": 2014,
+        "IMDBLink": "http://www.imdb.com/title/tt1877832/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "X-Men: Apocoalypse",
+        "yearOfRelease": 2016,
+        "IMDBLink": "http://www.imdb.com/title/tt3385516/?ref_=nv_sr_1"
+    ],
+    [
+        "moviename": "Logan",
+        "yearOfRelease": 2017,
+        "IMDBLink": "http://www.imdb.com/title/tt3315342/?ref_=nv_sr_1"
+    ],
     ]
 }
