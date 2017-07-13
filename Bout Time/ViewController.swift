@@ -68,8 +68,14 @@ class ViewController: UIViewController {
     let downHalfImage = UIImage(named: "down_half.png")
     let upHalfImage = UIImage(named: "up_half.png")
     let fullUpImage = UIImage(named: "up_full.png")
+    
     let nextRoundSuccessImage = UIImage(named: "next_round_success")
     let nextRoundFailImage = UIImage(named: "next_round_fail")
+    
+    let downFullSelected = UIImage(named: "down_full_selected")
+    let downHalfSelected = UIImage(named: "down_half_selected")
+    let upHalfSelected = UIImage(named: "up_half_selected")
+    let upFullSelected = UIImage(named: "up_full_selected")
     
     
     //Giving the buttons the correct background images.
@@ -81,6 +87,13 @@ class ViewController: UIViewController {
         thirdLabelHalfUp.setBackgroundImage(upHalfImage, for: .normal)
         thirdLabelHalfDown.setBackgroundImage(downHalfImage, for: .normal)
         upFullButton.setBackgroundImage(fullUpImage, for: .normal)
+        
+        downFullButton.setBackgroundImage(downFullSelected, for: .highlighted)
+        secondLabelHalfUp.setBackgroundImage(upHalfSelected, for: .highlighted)
+        secondLabelHalfDown.setBackgroundImage(downHalfSelected, for: .highlighted)
+        thirdLabelHalfUp.setBackgroundImage(upHalfSelected, for: .highlighted)
+        thirdLabelHalfDown.setBackgroundImage(downHalfSelected, for: .highlighted)
+        upFullButton.setBackgroundImage(upFullSelected, for: .highlighted)
         
         
         //Removing the title from each button.
@@ -107,7 +120,7 @@ class ViewController: UIViewController {
         repetitionStopper = []
         doneButton.isHidden = true
         descriptionLabel.text = "Shake to Complete"
-        timerLabel.text = String(timerNumber)
+        timerLabel.text = String("0:\(timerNumber)")
         startTimer()
         loadButtonBackgroundImage()
         timerLabel.isHidden = false
@@ -273,7 +286,7 @@ class ViewController: UIViewController {
     
     func counter() {
         timerNumber -= 1
-        timerLabel.text = String(timerNumber)
+        timerLabel.text = String("0:\(timerNumber)")
         
         if timerNumber == 0 {
             timer.invalidate()
@@ -323,7 +336,7 @@ class ViewController: UIViewController {
     func stopAndResetTime() {
         timer.invalidate()
         timerNumber = 60
-        timerLabel.text = String(timerNumber)
+        timerLabel.text = String("0:\(timerNumber)")
     }
     
     @IBAction func doneAction(_ sender: Any) {
