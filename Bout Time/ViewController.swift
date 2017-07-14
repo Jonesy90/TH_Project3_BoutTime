@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var repetitionStopper: [Int] = []
     var birthdaysInOrder: [Int] = []
     var currentNumberOfRounds = 0
-    let numberOfRounds = 3
+    let numberOfRounds = 6
     var points = 0
     
     var years: [Int] = []
