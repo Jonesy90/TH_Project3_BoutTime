@@ -22,10 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATJ-cE-JcA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATJ-cE-JcA">
                                 <rect key="frame" x="16" y="78" width="296" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="92" id="so8-gc-qVh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -47,9 +49,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgr-Rl-GEf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgr-Rl-GEf">
                                 <rect key="frame" x="313" y="78" width="46" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="92" id="lwx-Nh-Ezo"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="fullDownButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0g1-XC-D2l"/>
@@ -105,9 +109,11 @@
                                     <action selector="halfDownButtonActionTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5js-am-rG1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Har-kt-1R4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Har-kt-1R4">
                                 <rect key="frame" x="16" y="103" width="296" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="xc2-X6-meO"/>
+                                </constraints>
                                 <state key="normal" title="Button 1"/>
                                 <connections>
                                     <action selector="labelButtonOneAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B0C-7J-G2w"/>
@@ -198,6 +204,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="wZR-Oy-Eih" secondAttribute="leading" id="Dz7-Ht-ppy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fvp-76-3Qy" secondAttribute="trailing" id="GMH-1O-hqO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RDL-e2-tO0" secondAttribute="bottom" constant="247" id="Gfa-PD-yfW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ATJ-cE-JcA" secondAttribute="trailing" constant="47" id="GzL-Lb-gAU"/>
                             <constraint firstItem="iXg-dh-5TB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="H1i-Dz-667"/>
                             <constraint firstItem="iXg-dh-5TB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HeG-ks-Nfs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oPt-Zj-RGu" secondAttribute="bottom" constant="128" id="KWL-lk-2YA"/>
@@ -205,9 +212,15 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mVZ-V3-VhX" secondAttribute="bottom" constant="271" id="MYu-Ab-hN8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IxZ-dN-9g1" secondAttribute="bottom" constant="49" id="Mxh-O0-ndx"/>
                             <constraint firstItem="Fvp-76-3Qy" firstAttribute="leading" secondItem="qKi-dV-Ds7" secondAttribute="trailing" constant="1" id="N3Q-u7-U8X"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Har-kt-1R4" secondAttribute="leading" id="Nte-qI-5Sf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RDL-e2-tO0" secondAttribute="trailing" id="QhC-fa-utB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jgr-Rl-GEf" secondAttribute="bottom" constant="497" id="QoN-JU-R4Q"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Har-kt-1R4" secondAttribute="bottom" constant="521" id="Quy-CV-q1e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jgr-Rl-GEf" secondAttribute="trailing" id="T8Y-yL-tJU"/>
+                            <constraint firstItem="Jgr-Rl-GEf" firstAttribute="leading" secondItem="ATJ-cE-JcA" secondAttribute="trailing" constant="1" id="TrY-eZ-RGq"/>
                             <constraint firstItem="iXg-dh-5TB" firstAttribute="top" secondItem="q3l-cl-aoS" secondAttribute="bottom" constant="8" id="UZT-RU-mlO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="t0M-cU-JYr" secondAttribute="leading" id="UmW-RG-9Ql"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ATJ-cE-JcA" secondAttribute="leading" id="W0t-HE-jHy"/>
                             <constraint firstItem="RDL-e2-tO0" firstAttribute="leading" secondItem="qKi-dV-Ds7" secondAttribute="trailing" constant="1" id="XzO-1T-rWY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wZR-Oy-Eih" secondAttribute="trailing" constant="47" id="Zam-5t-I9w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t0M-cU-JYr" secondAttribute="trailing" constant="47" id="csE-f4-UPS"/>
@@ -223,7 +236,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fvp-76-3Qy" secondAttribute="bottom" constant="293" id="qJM-sd-c6l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qKi-dV-Ds7" secondAttribute="trailing" constant="47" id="qna-b5-SRA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XOY-2O-bML" secondAttribute="bottom" constant="395" id="r1C-Gk-gU2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ATJ-cE-JcA" secondAttribute="bottom" constant="497" id="umb-Jq-fZz"/>
                             <constraint firstItem="IxZ-dN-9g1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="wxS-kr-pph"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Har-kt-1R4" secondAttribute="trailing" constant="47" id="xEd-YW-2lB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qKi-dV-Ds7" secondAttribute="bottom" constant="247" id="xOa-9O-5dT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="c0n-VV-LHJ" secondAttribute="bottom" constant="371" id="yz7-F0-Pn8"/>
                         </constraints>
