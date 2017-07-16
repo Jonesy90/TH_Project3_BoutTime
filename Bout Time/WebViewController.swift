@@ -16,13 +16,13 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadWebsite()
+        print("URL String: \(urlString)")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let movieURL = URL(fileURLWithPath: urlString)
-        let movieURLRequest = URLRequest(url: movieURL)
-        webView.loadRequest(movieURLRequest)
-        print("URL String: \(urlString)")
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +30,10 @@ class WebViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func loadWebsite() {
+        let movieURL = URL(fileURLWithPath: urlString)
+        webView.loadRequest(URLRequest(url: movieURL))
+    }
     
 
 }

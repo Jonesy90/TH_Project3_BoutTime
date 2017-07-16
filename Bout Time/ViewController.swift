@@ -56,11 +56,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var upFullButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
-    @IBOutlet weak var labelButtonOne: UIButton!
-    @IBOutlet weak var labelButtonTwo: UIButton!
-    @IBOutlet weak var labelButtonThree: UIButton!
-    @IBOutlet weak var labelButtonFour: UIButton!
-    
     
     //MARK: Assigning images to UIImages.
     //Giving each image provided it's own UIImage.
@@ -105,10 +100,6 @@ class ViewController: UIViewController {
         upFullButton.setTitle("", for: .normal)
         doneButton.setTitle("", for: .normal)
         
-        labelButtonOne.setTitle("", for: .normal)
-        labelButtonTwo.setTitle("", for: .normal)
-        labelButtonThree.setTitle("", for: .normal)
-        labelButtonFour.setTitle("", for: .normal)
     }
     
     //Generates a random number from the amount of events in the birthday events.
@@ -124,10 +115,6 @@ class ViewController: UIViewController {
         startTimer()
         loadButtonBackgroundImage()
         timerLabel.isHidden = false
-        labelButtonOne.isEnabled = false
-        labelButtonTwo.isEnabled = false
-        labelButtonThree.isEnabled = false
-        labelButtonFour.isEnabled = false
         
     }
     
@@ -251,29 +238,24 @@ class ViewController: UIViewController {
         timerLabel.isHidden = true
         swapButtonsUnclickable()
         sortChecker()
-        labelButtonsClickable()
         
     }
     
     @IBAction func labelButtonOneAction(_ sender: Any) {
         destinationURL = urlLinks[0]
-        print(destinationURL)
-//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        print("Destination URL: \(destinationURL)")
     }
     @IBAction func labelButtonTwoAction(_ sender: Any) {
-//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        performSegue(withIdentifier: "urlSegue", sender: nil)
         destinationURL = urlLinks[1]
-        print(destinationURL)
     }
     @IBAction func labelButtonThreeAction(_ sender: Any) {
-//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        performSegue(withIdentifier: "urlSegue", sender: nil)
         destinationURL = urlLinks[2]
-        print(destinationURL)
     }
     @IBAction func labelButtonFourAction(_ sender: Any) {
-//        performSegue(withIdentifier: "urlSegue", sender: nil)
+        performSegue(withIdentifier: "urlSegue", sender: nil)
         destinationURL = urlLinks[3]
-        print(destinationURL)
     }
     
     
@@ -326,12 +308,6 @@ class ViewController: UIViewController {
         upFullButton.isEnabled = true
     }
     
-    func labelButtonsClickable() {
-        labelButtonOne.isEnabled = true
-        labelButtonTwo.isEnabled = true
-        labelButtonThree.isEnabled = true
-        labelButtonFour.isEnabled = true
-    }
     
     func stopAndResetTime() {
         timer.invalidate()
@@ -387,11 +363,7 @@ class ViewController: UIViewController {
                 totalScore.score = points
                 totalScore.totalRounds = numberOfRounds
             }
-        } else if segue.identifier == "urlSegue" {
-            if let webLink = segue.destination as? WebViewController {
-                webLink.urlString = destinationURL
-            }
-    }
+        }
 }
 
     
