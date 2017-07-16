@@ -308,7 +308,6 @@ class ViewController: UIViewController {
         upFullButton.isEnabled = true
     }
     
-    
     func stopAndResetTime() {
         timer.invalidate()
         timerNumber = 60
