@@ -341,7 +341,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     //MARK: ViewDiDLoad Function
     
     override func viewDidLoad() {
