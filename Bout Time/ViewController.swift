@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     let commicMovies = ComicMovies()
     var timer = Timer()
     
-    
     var randomNumber: Int = 0
     var repetitionStopper: [Int] = []
     var birthdaysInOrder: [Int] = []
